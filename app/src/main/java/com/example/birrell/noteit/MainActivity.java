@@ -120,8 +120,9 @@ public class MainActivity extends AppCompatActivity
             FileInputStream fis = openFileInput(FILE_NAME);
             byte[] buff = new byte[1024];
             int hasRead = 0;
+            textView1.setText("");
             while((hasRead = fis.read(buff)) > 0){
-                textView1.append(new String(buff,0,hasRead));
+                textView1.setText("test");//new String(buff,0,hasRead)
             }
             fis.close();
             return textView1.toString();
