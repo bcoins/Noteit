@@ -1,5 +1,6 @@
 package com.example.birrell.noteit;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
@@ -7,18 +8,24 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
 
 
 public class CreateNote extends AppCompatActivity {
     EditText editText;
+    TextView textView1;
     String FILE_NAME = "note1.txt";
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,7 +38,7 @@ public class CreateNote extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-/*        camera.setOnClickListener(new View.OnClickListener() {
+        camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent take = new Intent();
@@ -44,7 +51,7 @@ public class CreateNote extends AppCompatActivity {
             }
 
 
-        });*/
+        });
     }
 
 
@@ -65,7 +72,10 @@ public class CreateNote extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.done) {
             write(editText.getText().toString());
-
+            Log.d("btn","done");
+            Intent intent = new Intent();
+            intent.putExtra("data_return",editText.getText().toString());
+            setResult(RESULT_OK,intent);
             editText.setText("");
             finish();
             return true;
@@ -76,13 +86,30 @@ public class CreateNote extends AppCompatActivity {
 
     private void write(String content){
         try{
-            FileOutputStream fos = openFileOutput(FILE_NAME,MODE_APPEND);
-            PrintStream ps = new PrintStream(fos);
-            ps.append(content);
-            ps.close();
+            FileOutputStream fos = openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
+            fos.write(content.getBytes());
+            fos.close();
+            Toast.makeText(CreateNote.this,"Saved!",Toast.LENGTH_SHORT).show();
         }
         catch (Exception e){
             e.printStackTrace();
+            Toast.makeText(CreateNote.this,"Error saving file!",Toast.LENGTH_SHORT).show();
         }
     }
+    public String read(){
+        String text="";
+        try{
+            FileInputStream fis = openFileInput(FILE_NAME);
+            int size = fis.available();
+            byte[] buffer = new byte[size];
+            fis.read(buffer);
+            text = new String(buffer);
+            fis.close();
+            return text;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

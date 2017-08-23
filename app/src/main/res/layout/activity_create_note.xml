@@ -40,7 +40,6 @@
                 android:layout_marginBottom="56sp"
                 android:id="@+id/editNote"
                 android:layout_width="match_parent"
-
                 android:layout_height="match_parent"
                 android:layout_weight="1.01"
                 android:ems="10"
@@ -65,20 +64,23 @@
             android:id="@+id/takePhoto"
             android:layout_width="120dp"
             android:layout_height="match_parent"
-            android:text="Camera" />
+            android:text="Camera"
+            android:textAllCaps="false"/>
 
         <Button
             android:id="@+id/pickPic"
             android:layout_width="120dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
-            android:text="Pictures" />
+            android:text="Pictures"
+            android:textAllCaps="false"/>
 
         <Button
             android:id="@+id/record"
             android:layout_width="120dp"
             android:layout_height="match_parent"
-            android:text="Record" />
+            android:text="Record"
+            android:textAllCaps="false"/>
 
     </LinearLayout>
 

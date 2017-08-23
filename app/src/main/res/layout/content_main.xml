@@ -4,8 +4,9 @@
     android:background="@color/background"
     android:layout_height="match_parent"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:layout_marginTop="56sp">
+    android:layout_marginTop="0sp">
     <LinearLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -13,98 +14,9 @@
         android:paddingBottom="20dp"
         android:orientation="vertical"
         android:weightSum="1">
-        <android.support.v7.widget.CardView
-            android:id="@+id/card1"
-            android:layout_width="340dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            card_view:cardElevation="1dp"
-            android:translationZ="2dp"
 
-            >
 
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="layer1"
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="50dp"
-                android:layout_marginStart="20dp"
-                android:textSize="20sp"/>
-        </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView
-            android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:id="@+id/card2"
-            android:layout_width="340dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="@+id/card1"
-            android:layout_margin="20dp"
-            card_view:cardElevation="1dp"
-            android:translationZ="2dp">
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="layer2"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginStart="20dp"
-                android:textSize="20sp"/>
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:id="@+id/card3"
-            android:layout_width="340dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="@+id/card2"
-            android:layout_margin="0dp"
-            card_view:cardElevation="1dp"
-            android:translationZ="2dp">
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="layer3"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginStart="20dp"
-                android:textSize="20sp"/>
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:id="@+id/card4"
-            android:layout_width="340dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="@+id/card3"
-            android:layout_margin="20dp"
-            card_view:cardElevation="1dp"
-            android:translationZ="2dp"
-            android:layout_weight="1.42">
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="layer4"
-                android:layout_marginTop="100dp"
-                android:layout_marginBottom="90dp"
-                android:layout_marginStart="20dp"
-                android:textSize="20sp"/>
-        </android.support.v7.widget.CardView>
 
 
 

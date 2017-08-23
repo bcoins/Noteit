@@ -5,6 +5,7 @@
         android:id="@+id/done"
         android:orderInCategory="100"
         android:title="done"
+        android:textAllCaps="false"
         app:showAsAction="always"
     />
 
